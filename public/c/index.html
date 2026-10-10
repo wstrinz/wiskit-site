@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="referrer" content="no-referrer" />
+	<title>Wiskit contact</title>
+	<link rel="stylesheet" href="/style.css" />
+	<script src="/links.js" defer></script>
+	<script src="/c/contact.js" defer></script>
+</head>
+<body>
+<main>
+	<header><a class="brand" href="/">Wiskit</a></header>
+
+	<h1>Add a contact in Wiskit</h1>
+
+	<div class="card" id="has-code" hidden>
+		<p><strong>Someone shared their Wiskit contact code with you.</strong></p>
+		<p>If Wiskit is on this device, open it to add them. Wiskit will show who it is and ask you first.</p>
+		<div class="actions">
+			<a class="button primary" id="open-in-wiskit">Open in Wiskit</a>
+		</div>
+	</div>
+
+	<div class="card" id="no-code" hidden>
+		<p>This link is missing its contact code. Ask for the QR code again, or scan it from inside Wiskit.</p>
+	</div>
+
+	<div class="card">
+		<h2 style="margin-top:0">Don't have Wiskit yet?</h2>
+		<p>Install it, then come back to this link (or scan the QR code again).</p>
+		<div class="actions">
+			<a class="button" data-link="appStore" data-soon="iPhone: coming soon">iPhone (App Store)</a>
+			<a class="button" data-link="windows" data-soon="Windows: coming soon">Windows</a>
+		</div>
+	</div>
+
+	<p class="small">The code stays in this page (after the <code>#</code>); it is never sent to this website's server.</p>
+	<footer><a href="/privacy/">Privacy policy</a></footer>
+</main>
+</body>
+</html>
