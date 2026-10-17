@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Wiskit help</title>
+	<link rel="stylesheet" href="/style.css" />
+	<script src="/links.js" defer></script>
+</head>
+<body>
+<main>
+	<header><a class="brand" href="/">Wiskit</a></header>
+
+	<h1>Questions and answers</h1>
+
+	<h2>Why is there no account?</h2>
+	<p>
+		Your identity is created on your device and protected by a recovery phrase: 12 words Wiskit
+		shows you when you start. Nobody can sign in as you, and there's no password for us to lose.
+	</p>
+
+	<h2>How do I share with my partner or family?</h2>
+	<p>
+		On one device open Contacts and show your QR code; scan it from the other (or send your
+		contact link). Then share a tracker from its card. Everyone logs on their own device and sees
+		the same history.
+	</p>
+
+	<h2>What happens if I lose my phone or computer?</h2>
+	<p>
+		On the new device, choose "I'm restoring from a backup", type your recovery phrase and pick
+		your backup file. Wiskit saves an encrypted backup every day it's open (on Windows into a
+		folder you choose; on iPhone in the Files app, which your iPhone's iCloud Backup includes if
+		it's on), and shows when the last one was made.
+	</p>
+	<p>
+		You need both the phrase and a backup file. Without them we can't recover anything: we never
+		have a copy. The phrase alone doesn't bring trackers back yet; trackers someone shares with you
+		can be shared again.
+	</p>
+
+	<h2>What can the developer see?</h2>
+	<p>Nothing you write. Specifically:</p>
+	<ul>
+		<li>
+			When your devices aren't online together, encrypted messages wait in a mailbox server we
+			run. It can't read them; it sees queue ids, message sizes, timing and IP addresses, and
+			deletes each message once delivered (undelivered ones expire after 30 days).
+		</li>
+		<li>Relay servers help devices connect across networks. They see device addresses and traffic volume, not content.</li>
+		<li>A public discovery service maps device ids to addresses.</li>
+	</ul>
+	<p>The <a href="/privacy/">privacy policy</a> has the details.</p>
+
+	<h2>Does it work offline?</h2>
+	<p>
+		Yes. Logging and browsing never need the internet. Devices on the same Wi-Fi sync with each
+		other directly.
+	</p>
+
+	<h2>Android?</h2>
+	<p>Not yet. iPhone, iPad and Windows today.</p>
+
+	<h2 id="free">What's free</h2>
+	<p><strong>Wiskit is free to use and free to share with your family.</strong> These stay free for as long as Wiskit exists:</p>
+	<ul>
+		<li>Unlimited trackers and entries, and your full history</li>
+		<li>Sharing with your family's devices, and syncing between them</li>
+		<li>Photos kept on your own devices</li>
+		<li>Automatic encrypted backup to a place you choose</li>
+	</ul>
+	<p>
+		<strong>Why we can promise this.</strong> Wiskit syncs directly between your family's devices.
+		Your entries don't live on our servers, so sharing them costs us almost nothing to run.
+	</p>
+	<p>
+		<strong>What may cost money later.</strong> Someday there may be an optional plan for the things
+		that do cost money: an encrypted copy of your family's record, plus full-size photos and videos,
+		kept off-site. Nothing on the list above will move behind it.
+	</p>
+
+	<h2 id="winding-down">If Wiskit ever winds down</h2>
+	<p>We built Wiskit so your family's record doesn't depend on us. If we ever stop working on it:</p>
+	<ul>
+		<li>You'll get at least 90 days' notice in the app.</li>
+		<li>The app keeps working between your family's devices.</li>
+		<li>Backups stay yours and keep restoring.</li>
+	</ul>
+
+	<h2>Something else?</h2>
+	<p>
+		Email <a data-link="email" data-soon="us">us</a>. In the app, Settings › About and help › Email
+		support fills in your Wiskit version for you.
+	</p>
+
+	<footer><a href="/privacy/">Privacy policy</a></footer>
+</main>
+</body>
+</html>
