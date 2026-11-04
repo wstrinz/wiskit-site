@@ -1,7 +1,7 @@
 // The one place to change links. Empty means "not available yet"; the pages say so.
 window.WISKIT_LINKS = {
 	// The App Store page (unlisted link) once Apple approves the app.
-	appStore: '',
+	appStore: 'https://apps.apple.com/app/id6739819599',
 	// The latest Windows installer.
 	windows: '',
 	// Support and privacy contact.
