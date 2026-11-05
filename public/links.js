@@ -2,8 +2,8 @@
 window.WISKIT_LINKS = {
 	// The App Store page (unlisted link) once Apple approves the app.
 	appStore: 'https://apps.apple.com/app/id6739819599',
-	// The latest Windows installer.
-	windows: '',
+	// The latest Windows installer: the newest release's asset on this repo (wstrinz/wiskit-site).
+	windows: 'https://github.com/wstrinz/wiskit-site/releases/latest/download/Wiskit_x64-setup.exe',
 	// Support and privacy contact.
 	email: 'wiskitapp@gmail.com'
 };
