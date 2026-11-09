@@ -53,6 +53,15 @@ server {
         add_header Vary "Cookie" always;
     }
 
+    # Universal links: iOS (through Apple's CDN) reads this to open /c#<code> links in the app.
+    # It must be JSON, at this exact path, with no redirect and no key.
+    location = /.well-known/apple-app-site-association {
+        include /etc/nginx/snippets/wiskit-headers.conf;
+        default_type application/json;
+        add_header Cache-Control "max-age=3600" always;
+        types { }
+    }
+
     location / {
         try_files $uri $uri/ =404;
     }

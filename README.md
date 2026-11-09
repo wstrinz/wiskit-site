@@ -8,6 +8,11 @@ privacy policy. Static files in `public/`, served by nginx (`Dockerfile`, `nginx
   fragment (never sent to the server); "Open in Wiskit" hands it to the app's `wiskit-contact:`
   link, where the app shows who it is and asks before adding.
 - `public/privacy/`: the privacy policy the App Store listing links to.
+- `public/.well-known/apple-app-site-association`: universal links. On an iPhone with Wiskit
+  (1.20 or later, which has the `applinks:` entitlement), a `/c#<code>` link tapped or scanned with
+  the Camera opens the app directly; without Wiskit it opens the contact page and its install buttons.
+  iOS reads this file through Apple's CDN (`https://app-site-association.cdn-apple.com/a/v1/<host>`),
+  so a change takes a while to reach phones. Served as JSON, no key, no redirect.
 
 ## Invite-only home page
 

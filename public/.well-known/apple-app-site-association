@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["VKNNRYG5KB.nz.stri.wiskit"],
+        "components": [
+          { "/": "/c", "#": "?*", "comment": "A contact or invite link with its code opens Wiskit when installed." },
+          { "/": "/c/", "#": "?*", "comment": "The same, with the trailing slash." }
+        ]
+      }
+    ]
+  }
+}
