@@ -11,6 +11,8 @@ function showCode() {
 	const valid = /^[A-Za-z0-9_-]{16,4096}$/.test(code);
 	document.getElementById('has-code').hidden = !valid;
 	document.getElementById('no-code').hidden = valid;
+	// The site is invite-only: the install buttons show only alongside a contact or invite code.
+	document.getElementById('get-wiskit').hidden = !valid;
 	const open = document.getElementById('open-in-wiskit');
 	if (valid) open.setAttribute('href', `wiskit-contact:${code}`);
 	else open.removeAttribute('href');

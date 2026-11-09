@@ -1,0 +1,59 @@
+# Rendered at container start by the nginx image's template step. Only ${SITE_KEY} is substituted
+# (NGINX_ENVSUBST_FILTER in the Dockerfile); nginx's own $variables are left alone. The key is set in
+# the deployment's environment and never lives in this public repo.
+
+# 1 when the request carries the site key cookie (set by visiting /k/<key>).
+map $cookie_wiskit_key $wiskit_keyed {
+    default 0;
+    "${SITE_KEY}" 1;
+}
+
+server {
+    listen 80;
+    server_name _;
+    root /usr/share/nginx/html;
+    index index.html;
+    # Relative redirects: behind the HTTPS proxy nginx sees plain http on port 80, so an absolute
+    # Location would send the browser through http.
+    absolute_redirect off;
+
+    # nginx drops inherited add_header lines in any location that adds its own, so each such
+    # location includes these again.
+    include /etc/nginx/snippets/wiskit-headers.conf;
+
+    # The keyed link: https://<site>/k/<key> remembers the key for a year and lands on the home page.
+    location = /k/${SITE_KEY} {
+        include /etc/nginx/snippets/wiskit-headers.conf;
+        add_header Set-Cookie "wiskit_key=${SITE_KEY}; Path=/; Max-Age=31536000; Secure; HttpOnly; SameSite=Lax" always;
+        add_header Cache-Control "no-store" always;
+        return 302 /;
+    }
+    # Any other key gets the same answer as any unknown page.
+    location ^~ /k/ {
+        return 404;
+    }
+
+    # Home: the full page (downloads) with the key, a small public page (support, privacy) without it.
+    # The App Store listing's marketing and support URLs point here, so the public page must stay.
+    location = / {
+        if ($wiskit_keyed) {
+            rewrite ^ /_home/index.html last;
+        }
+        rewrite ^ /index.html last;
+    }
+    location = /index.html {
+        include /etc/nginx/snippets/wiskit-headers.conf;
+        add_header Cache-Control "private, no-store" always;
+        add_header Vary "Cookie" always;
+    }
+    location ^~ /_home/ {
+        internal;
+        include /etc/nginx/snippets/wiskit-headers.conf;
+        add_header Cache-Control "private, no-store" always;
+        add_header Vary "Cookie" always;
+    }
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
